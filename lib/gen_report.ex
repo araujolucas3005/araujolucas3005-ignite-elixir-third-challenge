@@ -74,7 +74,7 @@ defmodule GenReport do
     }
   end
 
-  def merge_maps(map1, map2),
+  defp merge_maps(map1, map2),
     do:
       Map.merge(map1, map2, fn _key, v1, v2 ->
         case is_number(v1) do
