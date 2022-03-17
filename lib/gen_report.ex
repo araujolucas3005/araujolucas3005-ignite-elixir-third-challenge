@@ -39,6 +39,10 @@ defmodule GenReport do
     |> Enum.reduce(build_object_skeleton(), fn line, report -> do_sum(line, report) end)
   end
 
+  def build_from_many(filenames) when not is_list(filenames) do
+    {:error, "Argumento deve ser uma lista"}
+  end
+
   def build_from_many(filenames) do
     filenames
     |> Task.async_stream(&build/1)
