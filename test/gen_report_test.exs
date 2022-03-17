@@ -28,7 +28,7 @@ defmodule GenReportTest do
       assert response == ReportFixture.build()
     end
 
-    test "When no filenames is not a list, returns an error" do
+    test "When filenames is not a list, returns an error" do
       response = GenReport.build_from_many("banana")
 
       assert response == {:error, "Argumento deve ser uma lista"}
